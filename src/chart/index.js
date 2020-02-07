@@ -60,7 +60,7 @@ function init(options) {
   const elemHeight = elem.offsetHeight
 
   // Setup the d3 tree layout
-  config.tree = d3.layout
+  config.tree = d3
     .tree()
     .nodeSize([nodeWidth + nodeSpacing, nodeHeight + nodeSpacing])
 
