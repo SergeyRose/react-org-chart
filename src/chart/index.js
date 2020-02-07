@@ -265,7 +265,7 @@ function init(options) {
   svgContainer.setAttribute('style', 'display:none;')
 
   //appending svg and canvas containers to root
-  const orgChart = document.getElementById('root')
+  const orgChart = document.getElementById('app')
   orgChart.append(canvasContainer)
   orgChart.append(svgContainer)
 }
