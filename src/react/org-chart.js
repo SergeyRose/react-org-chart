@@ -1,25 +1,29 @@
 const { createElement, PureComponent } = require('react')
 const { init } = require('../chart')
 
+const defaultProps = {
+  id: 'react-org-chart',
+  downloadImageId: 'download-image',
+  downloadPdfId: 'download-pdf',
+  zoomInId: 'zoom-in',
+  zoomOutId: 'zoom-out',
+  zoomExtentId: 'zoom-extent',
+}
+
 class OrgChart extends PureComponent {
   render() {
-    const { id } = this.props
+    const { id } = Object.assign(defaultProps, this.props);
 
     return createElement('div', {
       id,
+      style: {height: 700}
     })
   }
 
-  static defaultProps = {
-    id: 'react-org-chart',
-    downloadImageId: 'download-image',
-    downloadPdfId: 'download-pdf',
-    zoomInId: 'zoom-in',
-    zoomOutId: 'zoom-out',
-    zoomExtentId: 'zoom-extent',
-  }
+
 
   componentDidMount() {
+
     const {
       id,
       downloadImageId,
@@ -29,7 +33,7 @@ class OrgChart extends PureComponent {
       zoomExtentId,
       tree,
       ...options
-    } = this.props
+    } = Object.assign(defaultProps, this.props);
 
     init({
       id: `#${id}`,
